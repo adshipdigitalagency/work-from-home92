@@ -1,0 +1,230 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For My Everything | Valentine 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Poppins:wght@200;400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            --accent-pink: #ff8fa3;
+            --glass: rgba(255, 255, 255, 0.4);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            color: #4a4a4a;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-style: italic;
+            margin: 0;
+            color: #333;
+        }
+
+        .date {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: var(--accent-pink);
+        }
+
+        .gallery {
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            aspect-ratio: 4/5;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .img-container:hover {
+            transform: translateY(-10px);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.6));
+            color: white;
+            padding: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .letter-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .letter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 2;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .signature {
+            margin-top: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 10s linear infinite;
+        }
+
+        footer {
+            padding: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-pink);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="floating-elements" id="hearts-container"></div>
+
+    <section class="hero">
+        <div class="glass-card">
+            <span class="date">February 14, 2026</span>
+            <h1>To the one who <br> makes my heart bloom.</h1>
+            <p style="margin-top: 20px; font-weight: 200;">
+                A digital sanctuary for our beautiful journey.
+            </p>
+            <a href="#letter">Scroll for a Surprise ↓</a>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="img-container">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=800">
+            <div class="caption">Where it all began...</div>
+        </div>
+
+        <div class="img-container">
+            <img src="https://images.unsplash.com/photo-1522673607200-1648832cee98?auto=format&fit=crop&q=80&w=800">
+            <div class="caption">The laughter we shared.</div>
+        </div>
+
+        <div class="img-container">
+            <img src="https://images.unsplash.com/photo-1516589174184-c685266d7ea8?auto=format&fit=crop&q=80&w=800">
+            <div class="caption">To a thousand more sunsets.</div>
+        </div>
+    </section>
+
+    <section class="letter-section" id="letter">
+        <div class="letter-content">
+            <p>
+                "In a world full of temporary things, you are my forever.
+                Every moment spent with you feels like a beautiful dream 
+                I never want to wake up from. Thank you for being my peace,
+                my joy, and my best friend."
+            </p>
+
+            <div class="signature">
+                Yours Truly, [Your Name]
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        Handcrafted with love for you.
+    </footer>
+
+    <script>
+        const container = document.getElementById('hearts-container');
+        const heartIcons = ['🌸', '✨', '❤️', '☁️'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 5 + 5 + 's';
+            heart.style.opacity = Math.random();
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        setInterval(createHeart, 800);
+    </script>
+
+</body>
+</html>
